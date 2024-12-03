@@ -6,7 +6,6 @@ defmodule Day02.One do
     |> Stream.map(&Enum.chunk_every(&1, 2, 1, :discard))
     |> Stream.filter(&Day02.One.is_safe?/1)
     |> Enum.count()
-    |> IO.inspect(label: "chunked", char_lists: :as_lists)
   end
 
   @doc """
@@ -20,22 +19,25 @@ defmodule Day02.One do
   def dir([a, b]) when a == b, do: :error
 
   def is_safe?(levels) do
-    first_dir = dir(hd(levels))
+    # Rewrote it better in round 2
+    Day02.Two.is_safe?(levels)
 
-    safe =
-      Enum.reduce_while(levels, first_dir, fn l_chunk, acc_dir ->
-        if is_diff_safe?(l_chunk) do
-          if dir(l_chunk) == acc_dir do
-            {:cont, acc_dir}
-          else
-            {:halt, :error}
-          end
-        else
-          {:halt, :error}
-        end
-      end)
-
-    safe != :error
+    # first_dir = dir(hd(levels))
+    #
+    # safe =
+    #   Enum.reduce_while(levels, first_dir, fn l_chunk, acc_dir ->
+    #     if is_diff_safe?(l_chunk) do
+    #       if dir(l_chunk) == acc_dir do
+    #         {:cont, acc_dir}
+    #       else
+    #         {:halt, :error}
+    #       end
+    #     else
+    #       {:halt, :error}
+    #     end
+    #   end)
+    #
+    # safe != :error
   end
 
   @doc ~S"""
@@ -56,4 +58,3 @@ defmodule Day02.One do
     diff <= 3 and diff >= 1
   end
 end
-

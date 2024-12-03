@@ -8,4 +8,3 @@ defmodule Day02 do
     end)
   end
 end
-
