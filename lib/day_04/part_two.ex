@@ -14,9 +14,9 @@ defmodule Day04.Two do
     # down-left
     {1, -1},
     # up-right
-    {-1, 1},
+    {-1, -1},
     # up-left
-    {-1, -1}
+    {-1, 1}
   ]
 
   def do_massearch(grid) do
@@ -49,12 +49,6 @@ defmodule Day04.Two do
 
   def is_x_mas(_, _, _, found, []) do
     case found do
-      ["S", "M", "S", "M"] ->
-        true
-
-      ["M", "S", "M", "S"] ->
-        true
-
       ["M", "M", "S", "S"] ->
         true
 
