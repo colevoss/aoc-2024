@@ -102,35 +102,5 @@ defmodule Day04.One do
           false
       end
     end
-
-    # def is_xmas(_grid, char, _coord, _delta) when is_nil(char), do: false
-    #
-    # def is_xmas(grid, char, {row, col}, {row_d, col_d}) do
-    #   next_row = row + row_d
-    #   next_col = col + col_d
-    #
-    #   next_char = char_at(grid, next_row, next_col)
-    #
-    #   case {char, next_char} do
-    #     {_, nil} ->
-    #       false
-    #
-    #     {nil, _} ->
-    #       false
-    #
-    #     {"X", "M"} ->
-    #       is_xmas(grid, next_char, {next_row, next_col}, {row_d, col_d})
-    #
-    #     {"M", "A"} ->
-    #       is_xmas(grid, next_char, {next_row, next_col}, {row_d, col_d})
-    #
-    #     {"A", "S"} ->
-    #       IO.inspect({:found, char, row, col, row_d, col_d})
-    #       true
-    #
-    #     _ ->
-    #       false
-    #   end
-    # end
   end
 end
